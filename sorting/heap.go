@@ -3,7 +3,6 @@ package sorting
 import "algo-5/utils"
 
 type Heap struct {
-
 }
 
 func (h Heap) Run(data []string) string {
@@ -12,37 +11,35 @@ func (h Heap) Run(data []string) string {
 }
 
 func (h Heap) Sort(a []int) []int {
-	l := len(a)
-	for root := l /2 - 1; root >= 0; root -- {
-		moveMaxToRoot(a, root, l)
+	size := len(a)
+	for i := size/2 - 1; i >= 0; i-- {
+		heapify(a, size, i)
 	}
 
-	for i := l - 1; i >= 0; i-- {
+	for i := size - 1; i >= 0; i-- {
 		a[0], a[i] = a[i], a[0]
-		moveMaxToRoot(a, 0, a[i])
+		heapify(a, i, 0)
 	}
 
 	return a
 }
 
-func moveMaxToRoot(a []int, root int, size int) {
-	left := 2 * root + 1
+func heapify(a []int, size, i int) {
+	large := i
+	left := 2*i + 1
 	right := left + 1
 
-	x := root
-
-	if left < size && a[x] < a[left] {
-		x = left
+	if left < size && a[left] > a[large] {
+		large = left
 	}
 
-	if right < size && a[x] < a[right] {
-		x = right
+	if right < size && a[right] > a[large] {
+		large = right
 	}
 
-	if x == root {
-		return
+	if large != i {
+		a[large], a[i] = a[i], a[large]
+		heapify(a, size, large)
 	}
 
-	a[x], a[root] = a[root], a[x]
-	moveMaxToRoot(a, x, size)
 }
