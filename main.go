@@ -61,12 +61,12 @@ func main() {
 	//	sort.RunTestWithCount(8)
 	//}
 	//
-	//fmt.Printf("\n*** Test shell sort with Knut steps ***\n")
-	//for _, v := range tests {
-	//	fmt.Printf("\nType: %s:\n\n", v.description)
-	//	sort = tester.NewTester(sorting.Shell{StepType: sorting.KnutSteps}, v.path)
-	//	sort.RunTestWithCount(8)
-	//}
+	fmt.Printf("\n*** Test shell sort with Knut steps ***\n")
+	for _, v := range tests {
+		fmt.Printf("\nType: %s:\n\n", v.description)
+		sort = tester.NewTester(sorting.Shell{StepType: sorting.KnutSteps}, v.path)
+		sort.RunTestWithCount(8)
+	}
 	//
 	//fmt.Printf("\n*** Test shell sort with Sedgewick steps ***\n")
 	//for _, v := range tests {
@@ -75,10 +75,10 @@ func main() {
 	//	sort.RunTestWithCount(8)
 	//}
 	//
-	fmt.Printf("\n*** Test heap sort ***\n")
-	for _, v := range tests {
-		fmt.Printf("\nType: %s:\n\n", v.description)
-		sort = tester.NewTester(sorting.Heap{}, v.path)
-		sort.RunTestWithCount(8)
-	}
+	//fmt.Printf("\n*** Test heap sort ***\n")
+	//for _, v := range tests {
+	//	fmt.Printf("\nType: %s:\n\n", v.description)
+	//	sort = tester.NewTester(sorting.Heap{}, v.path)
+	//	sort.RunTestWithCount(8)
+	//}
 }
